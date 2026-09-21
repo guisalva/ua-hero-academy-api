@@ -22,4 +22,14 @@ public class ClassModel {
 
     private int capacity;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseModel course;
+
+    @OneToOne
+    @JoinColumn(name = "teacher_id")
+    private TeacherModel teacher;
+
+    @OneToMany(mappedBy = "classroom")
+    private List<StudentModel> students;
 }

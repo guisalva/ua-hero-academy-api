@@ -22,4 +22,7 @@ public class CourseModel {
 
     private String description;
 
+    @OneToMany(mappedBy = "course")
+    private List<ClassModel> classes;
+
 }

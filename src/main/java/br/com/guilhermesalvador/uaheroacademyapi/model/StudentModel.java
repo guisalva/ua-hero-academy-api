@@ -26,4 +26,8 @@ public class StudentModel {
 
     private Boolean active;
 
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+    private ClassModel classroom;
+
 }

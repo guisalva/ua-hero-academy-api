@@ -28,4 +28,7 @@ public class TeacherModel {
 
     private Boolean active;
 
+    @OneToOne(mappedBy = "teacher")
+    private ClassModel classroom;
+
 }
