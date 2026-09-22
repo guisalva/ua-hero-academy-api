@@ -29,7 +29,8 @@ public class TeacherModel {
 
     private Boolean active;
 
-    @OneToOne(mappedBy = "teacher")
+    @OneToOne
+    @JoinColumn(name = "class_id")
     private ClassModel classroom;
 
 }

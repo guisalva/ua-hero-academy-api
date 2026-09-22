@@ -26,8 +26,7 @@ public class ClassModel {
     @JoinColumn(name = "course_id")
     private CourseModel course;
 
-    @OneToOne
-    @JoinColumn(name = "teacher_id")
+    @OneToOne(mappedBy = "classroom")
     private TeacherModel teacher;
 
     @OneToMany(mappedBy = "classroom")
