@@ -5,6 +5,7 @@ import br.com.guilhermesalvador.uaheroacademyapi.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -17,6 +18,12 @@ public class CourseService {
 
     public List<CourseModel> listAll() {
         return courseRepository.findAll();
+    }
+
+    public CourseModel listById(Long id) {
+        Optional<CourseModel> course = courseRepository.findById(id);
+
+        return course.orElse(null);
     }
 
 }

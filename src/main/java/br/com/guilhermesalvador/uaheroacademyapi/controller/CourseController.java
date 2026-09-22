@@ -26,9 +26,9 @@ public class CourseController {
         return courseService.listAll();
     }
 
-    @GetMapping("/id")
-    public String listCourse() {
-        return "Course by id";
+    @GetMapping("/{id}")
+    public CourseModel listCourse(@PathVariable Long id) {
+        return courseService.listById(id);
     }
 
     @PutMapping("/id")
