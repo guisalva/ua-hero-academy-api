@@ -1,5 +1,6 @@
 package br.com.guilhermesalvador.uaheroacademyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class ClassModel {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonIgnore
     private CourseModel course;
 
     @OneToOne(mappedBy = "classroom")
