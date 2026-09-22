@@ -18,7 +18,8 @@ public class TeacherModel {
 
     private String name;
 
-    private String hero_name;
+    @Column(unique = true, name = "hero_name")
+    private String heroName;
 
     private String quirk;
 
