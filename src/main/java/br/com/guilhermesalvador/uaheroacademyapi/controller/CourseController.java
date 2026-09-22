@@ -17,8 +17,8 @@ public class CourseController {
     }
 
     @PostMapping
-    public String createCourse() {
-        return "Course created";
+    public CourseModel createCourse(@RequestBody CourseModel course) {
+        return courseService.create(course);
     }
 
     @GetMapping

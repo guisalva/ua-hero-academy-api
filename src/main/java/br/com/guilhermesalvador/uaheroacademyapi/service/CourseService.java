@@ -16,6 +16,10 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
+    public CourseModel create(CourseModel course) {
+        return courseRepository.save(course);
+    }
+
     public List<CourseModel> listAll() {
         return courseRepository.findAll();
     }
