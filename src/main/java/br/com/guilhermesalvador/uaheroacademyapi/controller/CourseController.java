@@ -1,6 +1,7 @@
 package br.com.guilhermesalvador.uaheroacademyapi.controller;
 
 import br.com.guilhermesalvador.uaheroacademyapi.model.CourseModel;
+import br.com.guilhermesalvador.uaheroacademyapi.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,14 +10,20 @@ import java.util.List;
 @RequestMapping("/course")
 public class CourseController {
 
+    private final CourseService courseService;
+
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
     @PostMapping
     public String createCourse() {
         return "Course created";
     }
 
     @GetMapping
-    public String listAllCourses() {
-        return "Course list";
+    public List<CourseModel> listAllCourses() {
+        return courseService.listAll();
     }
 
     @GetMapping("/id")
