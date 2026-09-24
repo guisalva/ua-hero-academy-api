@@ -30,4 +30,8 @@ public class CourseService {
         return course.orElse(null);
     }
 
+    public void deleteById(Long id) {
+        courseRepository.deleteById(id);
+    }
+
 }

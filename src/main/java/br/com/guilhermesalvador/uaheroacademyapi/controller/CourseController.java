@@ -31,14 +31,14 @@ public class CourseController {
         return courseService.listById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteCourse(@PathVariable Long id) {
+        courseService.deleteById(id);
+    }
+
     @PutMapping("/id")
     public String updateCourse() {
         return "Course updated";
-    }
-
-    @DeleteMapping("/id")
-    public String deleteCourse() {
-        return "Course deleted";
     }
 
 }
