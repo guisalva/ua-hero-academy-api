@@ -20,11 +20,11 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public List<CourseModel> listAll() {
+    public List<CourseModel> findAll() {
         return courseRepository.findAll();
     }
 
-    public CourseModel listById(Long id) {
+    public CourseModel findById(Long id) {
         Optional<CourseModel> course = courseRepository.findById(id);
 
         return course.orElse(null);
@@ -33,5 +33,13 @@ public class CourseService {
     public void deleteById(Long id) {
         courseRepository.deleteById(id);
     }
+
+     public CourseModel update(Long id, CourseModel course) {
+        if (courseRepository.existsById(id)) {
+            course.setId(id);
+            return courseRepository.save(course);
+        }
+        return null;
+     }
 
 }
