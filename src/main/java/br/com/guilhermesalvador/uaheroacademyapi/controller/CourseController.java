@@ -1,6 +1,6 @@
 package br.com.guilhermesalvador.uaheroacademyapi.controller;
 
-import br.com.guilhermesalvador.uaheroacademyapi.model.CourseModel;
+import br.com.guilhermesalvador.uaheroacademyapi.dto.CourseDTO;
 import br.com.guilhermesalvador.uaheroacademyapi.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +17,17 @@ public class CourseController {
     }
 
     @PostMapping
-    public CourseModel create(@RequestBody CourseModel course) {
+    public CourseDTO create(@RequestBody CourseDTO course) {
         return courseService.create(course);
     }
 
     @GetMapping
-    public List<CourseModel> findAll() {
+    public List<CourseDTO> findAll() {
         return courseService.findAll();
     }
 
     @GetMapping("/{id}")
-    public CourseModel findById(@PathVariable Long id) {
+    public CourseDTO findById(@PathVariable Long id) {
         return courseService.findById(id);
     }
 
@@ -37,7 +37,7 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
-    public CourseModel update(@PathVariable Long id, @RequestBody CourseModel course) {
+    public CourseDTO update(@PathVariable Long id, @RequestBody CourseDTO course) {
         return courseService.update(id, course);
     }
 
