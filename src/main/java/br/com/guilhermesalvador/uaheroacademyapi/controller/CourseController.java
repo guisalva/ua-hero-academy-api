@@ -26,13 +26,20 @@ public class CourseController {
     }
 
     @GetMapping
-    public List<CourseDTO> findAll() {
-        return courseService.findAll();
+    public ResponseEntity<List<CourseDTO>> findAll() {
+        List<CourseDTO> courses = courseService.findAll();
+        return ResponseEntity.ok(courses);
     }
 
     @GetMapping("/{id}")
-    public CourseDTO findById(@PathVariable Long id) {
-        return courseService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        CourseDTO course = courseService.findById(id);
+
+        if (course != null) {
+            return ResponseEntity.ok(course);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course not found");
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -46,8 +53,14 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
-    public CourseDTO update(@PathVariable Long id, @RequestBody CourseDTO course) {
-        return courseService.update(id, course);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CourseDTO course) {
+        CourseDTO updatedCourse =  courseService.update(id, course);
+
+        if (updatedCourse != null) {
+            return ResponseEntity.ok(updatedCourse);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course with id " + id + " not found");
+        }
     }
 
 }
