@@ -1,5 +1,6 @@
 package br.com.guilhermesalvador.uaheroacademyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class CourseModel {
     private String description;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<ClassModel> classes;
 
 }

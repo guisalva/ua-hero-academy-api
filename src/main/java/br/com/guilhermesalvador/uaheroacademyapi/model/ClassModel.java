@@ -25,7 +25,6 @@ public class ClassModel {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    @JsonIgnore
     private CourseModel course;
 
     @OneToOne(mappedBy = "classroom")
