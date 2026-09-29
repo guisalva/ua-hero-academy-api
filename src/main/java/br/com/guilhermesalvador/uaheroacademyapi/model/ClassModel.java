@@ -31,5 +31,6 @@ public class ClassModel {
     private TeacherModel teacher;
 
     @OneToMany(mappedBy = "classroom")
+    @JsonIgnore
     private List<StudentModel> students;
 }
