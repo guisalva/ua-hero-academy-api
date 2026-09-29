@@ -1,5 +1,6 @@
 package br.com.guilhermesalvador.uaheroacademyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class StudentModel {
     private String name;
 
     @Column(unique = true, name = "hero_name")
+    @JsonProperty("hero_name")
     private String heroName;
 
     private String quirk;
@@ -29,6 +31,7 @@ public class StudentModel {
 
     @ManyToOne
     @JoinColumn(name = "class_id")
+    @JsonProperty("class")
     private ClassModel classroom;
 
 }
