@@ -27,10 +27,10 @@ public class ClassModel {
     @JoinColumn(name = "course_id")
     private CourseModel course;
 
-    @OneToOne(mappedBy = "classroom")
+    @OneToOne
+    @JoinColumn(name = "teacher_id")
     private TeacherModel teacher;
 
     @OneToMany(mappedBy = "classroom")
-    @JsonIgnore
     private List<StudentModel> students;
 }

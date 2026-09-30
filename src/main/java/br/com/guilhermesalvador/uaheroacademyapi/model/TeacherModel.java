@@ -1,5 +1,7 @@
 package br.com.guilhermesalvador.uaheroacademyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +21,7 @@ public class TeacherModel {
     private String name;
 
     @Column(unique = true, name = "hero_name")
+    @JsonProperty("hero_name")
     private String heroName;
 
     private String quirk;
@@ -29,8 +32,8 @@ public class TeacherModel {
 
     private Boolean active;
 
-    @OneToOne
-    @JoinColumn(name = "class_id")
+    @OneToOne(mappedBy = "teacher")
+    @JsonIgnore
     private ClassModel classroom;
 
 }

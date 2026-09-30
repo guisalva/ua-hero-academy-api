@@ -1,5 +1,6 @@
 package br.com.guilhermesalvador.uaheroacademyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class StudentModel {
 
     @ManyToOne
     @JoinColumn(name = "class_id")
-    @JsonProperty("class")
+    @JsonProperty(value = "class", access = JsonProperty.Access.WRITE_ONLY)
     private ClassModel classroom;
 
 }
